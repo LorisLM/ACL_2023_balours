@@ -1,0 +1,6 @@
+-creation d'une grille 50x50
+-creation du personnage avec une position initial aleatoire 
+-faire en sorte que le personnage ne traverse pas le mur
+-creation classe mouvement pour executer les taches liées au deplacement du perso( gauche droite haut bas resteSurPlace)
+-version graphique sans labyrinthe
+-version avec labyrinthe
