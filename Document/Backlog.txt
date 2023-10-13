@@ -1,0 +1,31 @@
+Version 0 (Version Console) :
+
+- Afficher la position actuelle de Pac-Man.
+- Permettre au joueur d'entrer des commandes (L/R/U/D/S) pour déplacer Pac-Man
+
+Version 1 :
+
+- Introduire une interface graphique pour le jeu.
+- Générer le labyrinthe à partir d'un fichier.
+- Ajouter la génération du labyrinthe selon le niveau sélectionné.
+
+Version 2 :
+
+- Ajouter des cases pièges dans le labyrinthe.
+- Ajouter des cases magiques dans le labyrinthe.
+- Ajouter des cases passages dans le labyrinthe.
+- Afficher les graphismes pour Pacman et les cases du labyrinthe.
+
+Version 4 :
+
+- Ajouter des sorties au labyrinthe.
+- Permettre au héros de gagner le jeu en atteignant la sortie.
+
+Version 5 :
+
+- Placer des monstres de manière aléatoire dans le labyrinthe.
+- Faire en sorte que les monstres se déplacent de manière aléatoire.
+- Permettre aux monstres d'attaquer le héros au contact.
+- Permettre au héros d'attaquer les monstres sur les cases adjacentes 
+- Implémenter un comportement aggressif pour les monstres.
+- Introduire des fantômes qui peuvent traverser les murs.
