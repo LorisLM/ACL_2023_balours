@@ -6,27 +6,16 @@ public class Hero {
 		position = Position.InitPosition();
 	}
 	
-	public void moveHero(Move move) {
-		switch(move){
-			case HAUT:
-				position.setY(position.getY()-1);
-				break;
-			case BAS:
-				position.setY(position.getY()+1);
-				break;
-			case GAUCHE:
-				position.setX(position.getX()-1);
-				break;
-			case DROITE:
-				position.setX(position.getX()+1);
-				break;
-		}
-
+	public void moveHero(Move move, Labyrinthe labyrinthe){
+		if (labyrinthe.getPlateau()[getPosition().getY()+move.getY()][getPosition().getX()+move.getX()] == -1)
+			return;
+		position.setX(position.getX()+move.getX());
+		position.setY(position.getY()+move.getY());
 	}
 	
 	@Override
 	public String toString() {
-		return "x: " + position.getX() + " y: " + position.getY();
+		return "abscisse: " + position.getX() + " ordonnée: " + position.getY();
 	}
 	
 	public Position getPosition() {

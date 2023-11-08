@@ -6,7 +6,7 @@ public class Labyrinthe {
 
 	private int plateau [][] = new int[TAILLE][TAILLE];
 	private Hero hero;
-	public Labyrinthe(Hero hero) {
+	public Labyrinthe(Hero hero)  {
 		this.hero = hero;
         for (int i = 0; i < plateau.length; i++) { 
             for (int j = 0; j < plateau.length; j++) { 
@@ -18,11 +18,25 @@ public class Labyrinthe {
 
                 }
             } 
-        } 
-        
+        }
+
 	}
+
+    private Labyrinthe(Hero hero, int[][] plateau){
+        this.hero = hero;
+        this.plateau = plateau;
+        for (int i = 0; i < plateau.length; i++) {
+            for (int j = 0; j < plateau.length; j++) {
+                if (i == hero.getPosition().getY() && j == hero.getPosition().getX()) {
+                    plateau[i][j] = 2;
+
+                }
+            }
+        }
+    }
 	
 	public void updateLab() {
+
         for (int i = 0; i < plateau.length; i++) { 
             for (int j = 0; j < plateau.length; j++) { 
                 if (plateau[i][j] == 2) {
@@ -52,8 +66,13 @@ public class Labyrinthe {
           
        } 
 	}
-	
-	public static Labyrinthe FromFile() {
-		return null;
+
+    public int[][] getPlateau() {
+        return plateau;
+    }
+
+    public static Labyrinthe FromFile(Hero hero) {
+		return new Labyrinthe(hero, Utilitaire.readPlateauFromFile());
 	}
+
 }

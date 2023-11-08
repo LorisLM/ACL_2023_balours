@@ -4,12 +4,12 @@ import java.util.Scanner;
 public class Manager {
 	
 	public Manager() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public void start() {
 		Hero pacman = new Hero();
-		Labyrinthe lab = new Labyrinthe(pacman);
+		Labyrinthe lab = Labyrinthe.FromFile(pacman);
 
 		while (true) {
 			System.out.println(pacman);
@@ -18,8 +18,11 @@ public class Manager {
 			
 			Scanner keyboard = new Scanner(System.in);
 			String input = keyboard.nextLine();
-			
-			pacman.moveHero(Move.getMoveFromAcronyme(input));
+
+
+			pacman.moveHero(Move.getMoveFromAcronyme(input), lab);
+
+
 			lab.updateLab();
 
 		}

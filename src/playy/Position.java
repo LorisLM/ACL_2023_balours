@@ -12,7 +12,7 @@ public class Position {
 	
 	public static Position InitPosition() {
         Random rand = new Random();
-        int max = Labyrinthe.TAILLE-1;
+        int max = Labyrinthe.TAILLE-2;
         int min = 1;
 		return new Position(rand.nextInt(max - min + 1) + min,rand.nextInt(max - min + 1) + min);
 	}
