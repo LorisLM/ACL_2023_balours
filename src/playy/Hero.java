@@ -9,10 +9,10 @@ public class Hero {
 	public void moveHero(Move move) {
 		switch(move){
 			case HAUT:
-				position.setY(position.getY()+1);
+				position.setY(position.getY()-1);
 				break;
 			case BAS:
-				position.setY(position.getY()-1);
+				position.setY(position.getY()+1);
 				break;
 			case GAUCHE:
 				position.setX(position.getX()-1);
@@ -21,6 +21,7 @@ public class Hero {
 				position.setX(position.getX()+1);
 				break;
 		}
+
 	}
 	
 	@Override
