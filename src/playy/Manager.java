@@ -9,7 +9,7 @@ public class Manager {
 	
 	public void start() {
 		Hero pacman = new Hero();
-		Labyrinthe lab = new Labyrinthe(pacman);
+		Labyrinthe lab = Labyrinthe.FromFile(pacman);
 
 		while (true) {
 			System.out.println(pacman);
