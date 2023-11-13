@@ -7,9 +7,11 @@ public class Labyrinthe {
 	private int plateau [][] = new int[TAILLE][TAILLE];
 	private Hero hero;
 	public Monstre monstre;
-	public Labyrinthe(Hero hero,Monstre monstre)  {
+	public Malus malus;
+	public Labyrinthe(Hero hero,Monstre monstre, Malus malus)  {
 		this.hero = hero;
 	    this.monstre = monstre;
+	    this.malus = malus;
 
 	    for (int i = 0; i < plateau.length; i++) {
 	        for (int j = 0; j < plateau.length; j++) {
@@ -22,12 +24,15 @@ public class Labyrinthe {
 	            if (i == monstre.getPosition().getY() && j == monstre.getPosition().getX()) {
 	                plateau[i][j] = 3;
 	            }
+	            if (i == malus.getPosition().getY() && j == malus.getPosition().getX()) {
+	            	plateau[i][j] = 4;
+	            }
 	        }
 	    }
 
 	}
 
-    private Labyrinthe(Hero hero,Monstre monstre, int[][] plateau){
+    private Labyrinthe(Hero hero,Monstre monstre,Malus malus, int[][] plateau){
         this.hero = hero;
         this.monstre=monstre;
         this.plateau = plateau;
@@ -42,6 +47,9 @@ public class Labyrinthe {
                 if (i == monstre.getPosition().getY() && j == monstre.getPosition().getX()) {
                     plateau[i][j] = 9;
                 }
+                if (i == malus.getPosition().getY() && j == monstre.getPosition().getX()) {
+	            	plateau[i][j] = 4;
+	            }
             }
         }
     }
@@ -87,8 +95,8 @@ public class Labyrinthe {
         return plateau;
     }
 
-    public static Labyrinthe FromFile(Hero hero, Monstre monstre) {
-		return new Labyrinthe(hero,monstre, Utilitaire.readPlateauFromFile());
+    public static Labyrinthe FromFile(Hero hero, Monstre monstre, Malus malus) {
+		return new Labyrinthe(hero,monstre,malus, Utilitaire.readPlateauFromFile());
 	}
 
 }

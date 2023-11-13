@@ -10,7 +10,8 @@ public class Manager {
 	public void start() {
 		Hero pacman = new Hero();
 		Monstre monstre=new Monstre();
-		Labyrinthe lab = Labyrinthe.FromFile(pacman,monstre);
+		Malus malus = new Malus();
+		Labyrinthe lab = Labyrinthe.FromFile(pacman,monstre,malus);
 
 		while (true) {
 			System.out.println(pacman);
