@@ -1,40 +1,80 @@
 package playy;
-
-import java.awt.Graphics;
 import javax.swing.*;
-import java.awt.Color;
+import java.awt.*;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Interface extends JPanel {
-	public void paint(Graphics g){
-		int taille_laby = 50;
-		int pos_x = 700;
-		int pos_y = 700;
-	    g.setColor(new Color(0, 128, 0));
-		g.drawRect(500, 250, 10 * taille_laby, 10 * taille_laby);
-		g.fillRect(500, 250, 10 * taille_laby, 10 * taille_laby);
-	    g.setColor(new Color(135, 206, 235));
-		g.fillOval(pos_x, pos_y, 10, 10);
-	}
-	public static void main(String[] args) {
-		JFrame fen = new JFrame("Jeu");
-		fen.setSize(1000, 900);
-	    fen.setVisible(true);
+public class Interface extends JFrame {
 
-	    // Création des boutons de difficultés
-        JPanel panel = new JPanel();
-        JButton btn1 = new JButton("Facile");
-        JButton btn2 = new JButton("Moyen");
-        JButton btn3 = new JButton("Diffcile"); 
-        fen.add(btn1); 
-        fen.add(btn2);
-        fen.add(btn3);
-        fen.add(panel);
+    private int[][] PlateauJeu;
+
+    public Interface(int[][] PlateauJeu) {
+        this.PlateauJeu = PlateauJeu;
+        setTitle("Jeu du chat");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(300, 300);
+        setLocationRelativeTo(null);
+    }
+    
+    
+    public void MAJPlateauJeu(int[][] updatedPlateauJeu) {
+        this.PlateauJeu = updatedPlateauJeu;
+    }
+
+    
+    public void AfficherJeu() {
+        JPanel panel = new JPanel(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.insets = new Insets(1, 1, 1, 1);
+        int TailleCarre = 20;
+
         
-        fen.getContentPane().add(new Interface());
-        
-        // Affichage de l'interface
-        fen.pack();
-        fen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fen.setVisible(true);
-	}
+        for (int i = 0; i < PlateauJeu.length; i++) {
+            for (int j = 0; j < PlateauJeu[i].length; j++) {
+                JPanel carre = new JPanel();
+                carre.setPreferredSize(new Dimension(TailleCarre, TailleCarre));
+
+                
+                switch (PlateauJeu[i][j]) {
+                    case -1: // Mur
+                        carre.setBackground(new Color(139, 69, 19));
+                        break;
+                    case 0: // Terre
+                        carre.setBackground(new Color(210, 180, 140));
+                        break;
+                    case 2: // Heros
+                        carre.setBackground(Color.WHITE);
+                        break;
+                    case 9: // Monstre
+                        carre.setBackground(Color.BLACK);
+                        break;
+                    case 4: // Malus
+                        carre.setBackground(Color.YELLOW);
+                        break;
+                    case 5: // Epee
+                        carre.setBackground(Color.RED);
+                        break;
+                    case 6: // Soins
+                        carre.setBackground(Color.GREEN);
+                        break;
+                    case 7: // Tresor
+                        carre.setBackground(Color.CYAN);
+                        break;
+                    default:
+                        break;
+                }
+
+                constraints.gridx = j;
+                constraints.gridy = i;
+                panel.add(carre, constraints);
+            }
+        }
+
+        getContentPane().removeAll();
+        add(panel);
+        revalidate();
+        repaint();
+        setVisible(true);
+    }
 }

@@ -3,6 +3,7 @@ package playy;
 
 import playy.entity.Hero;
 import playy.entity.Monstre;
+import playy.equipement.Tresor;
 
 public class Labyrinthe {
 	public static final int TAILLE = 10;
@@ -11,10 +12,12 @@ public class Labyrinthe {
 	private Hero hero;
 	public Monstre monstre;
 	public Malus malus;
-	public Labyrinthe(Hero hero,Monstre monstre, Malus malus)  {
+	public Tresor tresor;
+	public Labyrinthe(Tresor tresor, Hero hero,Monstre monstre, Malus malus)  {
 		this.hero = hero;
 	    this.monstre = monstre;
 	    this.malus = malus;
+	    this.tresor = tresor;
 
 	    for (int i = 0; i < plateau.length; i++) {
 	        for (int j = 0; j < plateau.length; j++) {
@@ -30,15 +33,19 @@ public class Labyrinthe {
 	            if (i == malus.getPosition().getY() && j == malus.getPosition().getX()) {
 	            	plateau[i][j] = 4;
 	            }
+	            if (i == tresor.getPosition().getY() && j == tresor.getPosition().getX()) {
+	            	plateau[i][j] = 7;
+	            }
 	        }
 	    }
 
 	}
 
-    private Labyrinthe(Hero hero,Monstre monstre,Malus malus, int[][] plateau){
+    private Labyrinthe(Tresor tresor,Hero hero,Monstre monstre,Malus malus, int[][] plateau){
         this.hero = hero;
         this.monstre=monstre;
         this.plateau = plateau;
+	    this.tresor = tresor;
         for (int i = 0; i < plateau.length; i++) {
             for (int j = 0; j < plateau.length; j++) {
                 plateau[i][j] = 0;
@@ -52,6 +59,9 @@ public class Labyrinthe {
                 }
                 if (i == malus.getPosition().getY() && j == monstre.getPosition().getX()) {
 	            	plateau[i][j] = 4;
+	            }
+                if (i == tresor.getPosition().getY() && j == tresor.getPosition().getX()) {
+	            	plateau[i][j] = 7;
 	            }
             }
         }
@@ -98,8 +108,8 @@ public class Labyrinthe {
         return plateau;
     }
 
-    public static Labyrinthe FromFile(Hero hero, Monstre monstre, Malus malus) {
-		return new Labyrinthe(hero,monstre,malus, Utilitaire.readPlateauFromFile());
+    public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus) {
+		return new Labyrinthe(tresor, hero,monstre,malus, Utilitaire.readPlateauFromFile());
 	}
 
 }

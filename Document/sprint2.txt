@@ -1,0 +1,19 @@
+Mohamed :
+- Création de la classe personnages pour regrouper le Héros et le Monstre
+- Attribution de la vie à chaque caractère
+
+Baptiste : 
+- Création de la classe objets avec une épée qui permet de tuer le monstre si on va dans la même case et une potion de soin pour remotner la vie du héros
+- Création de la classe Malus qui est piège aléatoire sur la carte, cela retire de la vie au Héros
+- Diagramme de séquence
+
+Loris :
+- Finalisation du mouvement du héros
+- Création du fichier texte du plateau
+- Built auto Maven
+- Correction des bugs et création de l'utilisation de l'épée et du soin
+
+Bilal :
+- Finalisation de la classe Interface sans image pour qu'elle s'actualise à chaque fois et qu'on voit le héros et le monstre bouger à chaque tour
+- Création de la classe trésor qui permet au héros de finir le jeu lorsqu'il va dessus
+- Diagramme de classe
