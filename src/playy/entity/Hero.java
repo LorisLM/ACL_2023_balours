@@ -1,8 +1,8 @@
 package playy.entity;
 
 import playy.Labyrinthe;
-import playy.Move;
 import playy.Position;
+import playy.action.Action;
 import playy.equipement.Epee;
 import playy.equipement.Equipement;
 import playy.equipement.Soin;
@@ -17,14 +17,6 @@ public class Hero extends Entity {
 		super(20, Position.InitPosition());
 		equipements.add(new Epee(10));
 	}
-	
-	public void excuteAction(Move move, Labyrinthe labyrinthe){
-		if (labyrinthe.getPlateau()[getPosition().getY()+move.getY()][getPosition().getX()+move.getX()] == -1)
-			return;
-		position.setX(position.getX()+move.getX());
-		position.setY(position.getY()+move.getY());
-	}
-
 	public void attack(Entity target){
 		try{
 			Epee epee = equipements.stream()
@@ -59,5 +51,9 @@ public class Hero extends Entity {
 	
 	public Position getPosition() {
 		return position;
+	}
+
+	public void executeAction(Action actionFromAcronyme) {
+		actionFromAcronyme.execute();
 	}
 }

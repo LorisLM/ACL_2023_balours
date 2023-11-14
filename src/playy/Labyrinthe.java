@@ -1,6 +1,8 @@
 package playy;
 
 
+import playy.action.Action;
+import playy.action.Move;
 import playy.entity.Hero;
 import playy.entity.Monstre;
 import playy.equipement.Tresor;
@@ -66,10 +68,11 @@ public class Labyrinthe {
             }
         }
     }
-	
-	public void updateLab() {
 
-		
+	/*
+	Actualise la position de toutes les entités présentes sur le labyrinthe
+	 */
+	public void updateLab() {
 		    for (int i = 0; i < plateau.length; i++) {
 		        for (int j = 0; j < plateau.length; j++) {
 		            if (plateau[i][j] == 2 || plateau[i][j] == 9) {
@@ -79,13 +82,15 @@ public class Labyrinthe {
 		    }
 
 		    plateau[hero.getPosition().getY()][hero.getPosition().getX()] = 2;
-		    plateau[monstre.getPosition().getY()][monstre.getPosition().getX()] = 9; // Mettez à jour la position du monstre
+		    plateau[monstre.getPosition().getY()][monstre.getPosition().getX()] = 9;
 
-		    hero.excuteAction(Move.getMoveFromAcronyme("S"), this);
+		    hero.executeAction(Action.getActionFromAcronyme("S"));
 		    monstre.moveMonstre(this);
 		}
 
-	
+	/*
+	Afficher le labyrinthe sous forme de matrice
+	 */
 	public void afficher() {
         for (int i = 0; i < plateau.length; i++) { 
             for (int j = 0; j < plateau.length; j++) { 
@@ -94,20 +99,14 @@ public class Labyrinthe {
             System.out.println(); 
         } 
 	}
-	
-	public void toFile() {
-        for (int i = 0; i < plateau.length; i++) { 
-            for (int j = 0; j < plateau.length; j++) { 
-               
-            } 
-          
-       } 
-	}
 
     public int[][] getPlateau() {
         return plateau;
     }
 
+	/*
+	Créée un labyrinthe à partir d'un fichier
+	 */
     public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus) {
 		return new Labyrinthe(tresor, hero,monstre,malus, Utilitaire.readPlateauFromFile());
 	}

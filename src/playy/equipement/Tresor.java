@@ -10,7 +10,7 @@ public class Tresor {
 		position = Position.InitPosition();
 	}
 	
-	public void Gagner() {
+	public void gagner() {
 		this.flag = true;
 	}
 	
