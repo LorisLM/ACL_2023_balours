@@ -1,6 +1,9 @@
 package playy;
 
 
+import playy.entity.Hero;
+import playy.entity.Monstre;
+
 public class Labyrinthe {
 	public static final int TAILLE = 10;
 
@@ -68,7 +71,7 @@ public class Labyrinthe {
 		    plateau[hero.getPosition().getY()][hero.getPosition().getX()] = 2;
 		    plateau[monstre.getPosition().getY()][monstre.getPosition().getX()] = 9; // Mettez à jour la position du monstre
 
-		    hero.moveHero(Move.getMoveFromAcronyme("S"), this);
+		    hero.excuteAction(Move.getMoveFromAcronyme("S"), this);
 		    monstre.moveMonstre(this);
 		}
 

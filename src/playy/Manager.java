@@ -1,4 +1,7 @@
 package playy;
+import playy.entity.Hero;
+import playy.entity.Monstre;
+
 import java.util.Scanner;
 
 public class Manager {
@@ -16,13 +19,13 @@ public class Manager {
 		while (true) {
 			System.out.println(pacman);
 			lab.afficher();
-			System.out.println("Entrez une commande (H/G/B/D/S)");
+			System.out.println("Entrez une commande (H/G/B/D/S)+(A/H)");
 			
 			Scanner keyboard = new Scanner(System.in);
 			String input = keyboard.nextLine();
 
 
-			pacman.moveHero(Move.getMoveFromAcronyme(input), lab);
+			pacman.excuteAction(Move.getMoveFromAcronyme(input), lab);
 
 
 			lab.updateLab();

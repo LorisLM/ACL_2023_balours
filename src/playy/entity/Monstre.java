@@ -1,11 +1,13 @@
-package playy;
+package playy.entity;
+import playy.Labyrinthe;
+import playy.Position;
+
 import java.util.Random;
 
-public class Monstre {
-    private Position position;
+public class Monstre extends Entity {
 
     public Monstre() {
-        position = Position.InitPosition();
+        super(2, Position.InitPosition());
     }
 
     public void moveMonstre(Labyrinthe labyrinthe) {

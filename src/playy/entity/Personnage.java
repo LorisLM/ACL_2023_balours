@@ -1,4 +1,7 @@
-package playy;
+package playy.entity;
+
+import playy.entity.Hero;
+import playy.entity.Monstre;
 
 //Personnage.java
 public class Personnage {
