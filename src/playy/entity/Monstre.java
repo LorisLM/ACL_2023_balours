@@ -12,8 +12,8 @@ public class Monstre extends Entity {
 
     public void moveMonstre(Labyrinthe labyrinthe) {
         Random rand = new Random();
-        int moveX = rand.nextInt(3) - 1; 
-        int moveY = rand.nextInt(3) - 1;  
+        int moveX = rand.nextInt(3) - 1;
+        int moveY = rand.nextInt(3) - 1;
 
         
         int newX = position.getX() + moveX;

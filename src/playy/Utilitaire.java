@@ -27,7 +27,7 @@ public class Utilitaire {
 	public static int[][] readPlateauFromFile() {
 		int[][] plateau = new int[TAILLE][TAILLE];
 
-		try (Scanner scanner = new Scanner(new File("plateau.txt"))) {
+		try (Scanner scanner = new Scanner(new File("plateaumoyen.txt"))) {
 			for (int i = 0; i < TAILLE; i++) {
 				if (scanner.hasNextLine()) {
 					String line = scanner.nextLine();

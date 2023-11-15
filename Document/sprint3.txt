@@ -1,0 +1,14 @@
+Baptiste : 
+- Passages permettant au personnages de se téléporter à travers des portails placés aléatoirement
+- Malus qui fait ralentir le héros (par exemple à 30% de chance de rester sur place quand il bouge) ou lui enlève des points de vie
+
+Bilal :
+- Affichage des images des équipements et entités sur le plateau
+- Affichage des niveaux de difficultés et choix de niveau
+
+Loris :
+- Finalisation des fonctions heal et attaque
+- Correction de bug à partir de la génération pour fichier
+
+Mohamed :
+- Création des fantomes permettant de traverser le mur s'il y en a un

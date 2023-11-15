@@ -50,7 +50,7 @@ public class Interface extends JFrame {
                         carre.setBackground(Color.BLACK);
                         break;
                     case 4: // Malus
-                        carre.setBackground(Color.YELLOW);
+                        carre.setBackground(Color.CYAN);
                         break;
                     case 5: // Epee
                         carre.setBackground(Color.RED);
@@ -59,7 +59,7 @@ public class Interface extends JFrame {
                         carre.setBackground(Color.GREEN);
                         break;
                     case 7: // Tresor
-                        carre.setBackground(Color.CYAN);
+                        carre.setBackground(Color.YELLOW);
                         break;
                     default:
                         break;

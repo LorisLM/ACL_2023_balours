@@ -30,7 +30,7 @@ public class Manager {
 			System.out.println(pacman);
 			lab.afficher();
 			InterfaceJeu.MAJPlateauJeu(lab.getPlateau());
-            		InterfaceJeu.AfficherJeu();
+            InterfaceJeu.AfficherJeu();
 
 			System.out.println("Entrez une commande (H/G/B/D/S)+(A/H)");
 			

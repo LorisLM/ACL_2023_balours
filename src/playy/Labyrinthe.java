@@ -8,7 +8,7 @@ import playy.entity.Monstre;
 import playy.equipement.Tresor;
 
 public class Labyrinthe {
-	public static final int TAILLE = 10;
+	public static final int TAILLE = 31;
 
 	private int plateau [][] = new int[TAILLE][TAILLE];
 	private Hero hero;
@@ -48,11 +48,9 @@ public class Labyrinthe {
         this.monstre=monstre;
         this.plateau = plateau;
 	    this.tresor = tresor;
+	    this.plateau = plateau;
         for (int i = 0; i < plateau.length; i++) {
             for (int j = 0; j < plateau.length; j++) {
-                plateau[i][j] = 0;
-                if (i == 0 || i == TAILLE - 1 || j == 0 || j == TAILLE - 1)
-                    plateau[i][j] = -1;
                 if (i == hero.getPosition().getY() && j == hero.getPosition().getX()) {
                     plateau[i][j] = 2;
                 }
