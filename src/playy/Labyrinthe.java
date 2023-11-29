@@ -8,7 +8,7 @@ import playy.entity.Monstre;
 import playy.equipement.Tresor;
 
 public class Labyrinthe {
-	public static final int TAILLE = 31;
+	public static final int TAILLE = 34;
 
 	private int plateau [][] = new int[TAILLE][TAILLE];
 	private Hero hero;
