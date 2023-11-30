@@ -1,5 +1,6 @@
 package playy;
 import playy.action.Action;
+import playy.entity.*;
 import playy.action.Move;
 import playy.entity.Hero;
 import playy.equipement.Tresor;
@@ -17,6 +18,8 @@ public class Manager {
 	private Monstre monstre;
 	private Malus malus;
 	private Tresor tresor;
+	private Portal portala;
+	private Portal portalb;
 	private Labyrinthe lab;
 	public void start() {
 		manager = this;
@@ -24,7 +27,9 @@ public class Manager {
 		monstre=new Monstre();
 		malus = new Malus();
 		tresor = new Tresor();
-		lab = Labyrinthe.FromFile(tresor, pacman,monstre,malus);
+		portala = new Portal();
+		portalb = new Portal();
+		lab = Labyrinthe.FromFile(tresor, pacman,monstre,malus, portala, portalb);
 
 		while (!tresor.flag) {
 			System.out.println(pacman);

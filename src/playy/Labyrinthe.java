@@ -1,5 +1,5 @@
 package playy;
-
+import playy.entity.*;
 
 import playy.action.Action;
 import playy.action.Move;
@@ -15,11 +15,16 @@ public class Labyrinthe {
 	public Monstre monstre;
 	public Malus malus;
 	public Tresor tresor;
-	public Labyrinthe(Tresor tresor, Hero hero,Monstre monstre, Malus malus)  {
+	public Portal portala;
+	public Portal portalb;
+	
+	public Labyrinthe(Tresor tresor, Hero hero,Monstre monstre, Malus malus, Portal portala, Portal portalb)  {
 		this.hero = hero;
 	    this.monstre = monstre;
 	    this.malus = malus;
 	    this.tresor = tresor;
+	    this.portala = portala;
+	    this.portala = portalb;
 
 	    for (int i = 0; i < plateau.length; i++) {
 	        for (int j = 0; j < plateau.length; j++) {
@@ -38,17 +43,26 @@ public class Labyrinthe {
 	            if (i == tresor.getPosition().getY() && j == tresor.getPosition().getX()) {
 	            	plateau[i][j] = 7;
 	            }
+	            if (i == portala.getPosition().getY() && j == portala.getPosition().getX() && plateau[i][j] != 0) {
+	            	plateau[i][j] = 8;
+	            }
+	            if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX() && plateau[i][j] != 0) {
+	            	plateau[i][j] = 8;
+	            }
 	        }
 	    }
 
 	}
 
-    private Labyrinthe(Tresor tresor,Hero hero,Monstre monstre,Malus malus, int[][] plateau){
+    private Labyrinthe(Tresor tresor,Hero hero,Monstre monstre,Malus malus,Portal portala, Portal portalb, int[][] plateau){
         this.hero = hero;
         this.monstre=monstre;
         this.plateau = plateau;
 	    this.tresor = tresor;
 	    this.plateau = plateau;
+	    this.portala = portala;
+	    this.portalb = portalb;
+	    
         for (int i = 0; i < plateau.length; i++) {
             for (int j = 0; j < plateau.length; j++) {
                 if (i == hero.getPosition().getY() && j == hero.getPosition().getX()) {
@@ -62,6 +76,12 @@ public class Labyrinthe {
 	            }
                 if (i == tresor.getPosition().getY() && j == tresor.getPosition().getX()) {
 	            	plateau[i][j] = 7;
+	            }
+                if (i == portala.getPosition().getY() && j == portala.getPosition().getX()) {
+	            	plateau[i][j] = 8;
+	            }
+                if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX()) {
+	            	plateau[i][j] = 8;
 	            }
             }
         }
@@ -105,8 +125,8 @@ public class Labyrinthe {
 	/*
 	Créée un labyrinthe à partir d'un fichier
 	 */
-    public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus) {
-		return new Labyrinthe(tresor, hero,monstre,malus, Utilitaire.readPlateauFromFile());
+    public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus, Portal portala, Portal portalb) {
+		return new Labyrinthe(tresor, hero,monstre,malus, portala, portalb, Utilitaire.readPlateauFromFile());
 	}
 
 }
