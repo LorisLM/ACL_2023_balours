@@ -1,5 +1,6 @@
 package playy;
 import playy.entity.*;
+import playy.action.*;
 
 import playy.action.Action;
 import playy.action.Move;

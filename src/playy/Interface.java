@@ -90,7 +90,7 @@ public class Interface extends JFrame {
                 // Code pour afficher le labyrinthe difficile
                 System.out.println("Labyrinthe difficile affiché");
                 remove(difficultePanel);
-                setSize(1000, 1000);
+                setSize(1000, 1001);
                 afficherLabyrinthe();
             }
         });
