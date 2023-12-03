@@ -1,6 +1,7 @@
 package playy.entity;
 
 import playy.Labyrinthe;
+import playy.Manager;
 import playy.Position;
 import playy.action.Action;
 import playy.equipement.Epee;
@@ -15,7 +16,7 @@ public class Hero extends Entity {
 
 	public Hero() {
 		super(20, Position.InitPosition());
-		equipements.add(new Epee(10));
+		equipements.add(new Soin(10));
 	}
 	public void attack(Entity target){
 		try{
@@ -25,6 +26,9 @@ public class Hero extends Entity {
 					.findFirst().get();
 
 			epee.use(target);
+			if (target.getLife() <=0){
+				Manager.getManager().getLab().getPlateau()[target.position.getY()][target.position.getX()] = 0;
+			}
 		}catch (NoSuchElementException e){
 			System.out.println("Vous n'avez pas d'épée !");
 		}
@@ -38,6 +42,7 @@ public class Hero extends Entity {
 					.map(equipement -> (Soin) equipement)
 					.findFirst().get();
 			soin.use(this);
+			System.out.println("Je heal !");
 		}catch (NoSuchElementException e){
 			System.out.println("Vous n'avez pas de heal !");
 		}

@@ -14,19 +14,18 @@ public enum Move implements Action {
 		this.x = x;
 		this.y =y;
 	}
-	
+
 
 	@Override
 	public void execute() {
 		Position position = Manager.getManager().getPacman().getPosition();
 		int[][] plateau = Manager.getManager().getLab().getPlateau();
 
-		if (plateau[position.getY()+this.getY()][position.getX()+this.getX()] == -1)
+		if (plateau[position.getY()+this.getY()][position.getX()+this.getX()] == -1 ||plateau[position.getY()+this.getY()][position.getX()+this.getX()] == 9)
 			return;
 		position.setX(position.getX()+this.getX());
 		position.setY(position.getY()+this.getY());
 	}
-
 
 
 	public int getX() {

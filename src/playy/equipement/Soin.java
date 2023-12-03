@@ -7,8 +7,8 @@ public class Soin extends Equipement {
 
     private final int HEAL = 10;
 
-    public Soin() {
-        super(1);
+    public Soin(int i) {
+        super(i);
     }
 
     @Override

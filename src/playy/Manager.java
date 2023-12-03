@@ -24,20 +24,21 @@ public class Manager {
 	public void start() {
 		manager = this;
 		pacman = new Hero();
-		monstre=new Monstre();
+		monstre=new Monstre(Position.InitPosition());
 		malus = new Malus();
 		tresor = new Tresor();
 		portala = new Portal();
 		portalb = new Portal();
 		lab = Labyrinthe.FromFile(tresor, pacman,monstre,malus, portala, portalb);
+		InterfaceJeu.AfficherJeu();
 
 		while (!tresor.flag) {
+
 			System.out.println(pacman);
 			lab.afficher();
 			InterfaceJeu.MAJPlateauJeu(lab.getPlateau());
-            InterfaceJeu.AfficherJeu();
-
-			System.out.println("Entrez une commande (H/G/B/D/S)+(A/H)");
+			InterfaceJeu.afficherLabyrinthe();
+			System.out.println("Entrez une commande (H/G/B/D/S)+(A/E)");
 			
 			Scanner keyboard = new Scanner(System.in);
 			String input = keyboard.nextLine();
@@ -66,4 +67,10 @@ public class Manager {
 	public Labyrinthe getLab() {
 		return lab;
 	}
+
+	public Monstre getMonstre() {
+		return monstre;
+	}
+
+
 }

@@ -23,6 +23,7 @@ public class Interface extends JFrame {
     private ImageIcon TresorIcon;
     private ImageIcon MalusIcon;
     private JPanel cards;
+    private boolean isStarted=false;
 
     public Interface(int[][] PlateauJeu) {
         this.PlateauJeu = PlateauJeu;
@@ -69,6 +70,7 @@ public class Interface extends JFrame {
                 System.out.println("Labyrinthe facile affiché");
                 remove(difficultePanel); // Supprime le panel de choix de difficulté
                 setSize(400, 400); // Nouvelle taille de fenêtre pour le labyrinthe
+                isStarted=true;
                 afficherLabyrinthe();
             }
         });
@@ -80,6 +82,7 @@ public class Interface extends JFrame {
                 System.out.println("Labyrinthe moyen affiché");
                 remove(difficultePanel);
                 setSize(700, 700);
+                isStarted=true;
                 afficherLabyrinthe();
             }
         });
@@ -91,6 +94,7 @@ public class Interface extends JFrame {
                 System.out.println("Labyrinthe difficile affiché");
                 remove(difficultePanel);
                 setSize(1000, 1001);
+                isStarted=true;
                 afficherLabyrinthe();
             }
         });
@@ -221,5 +225,8 @@ public class Interface extends JFrame {
         }
         return null;
     }
-    
+
+    public boolean isStarted() {
+        return isStarted;
+    }
 }

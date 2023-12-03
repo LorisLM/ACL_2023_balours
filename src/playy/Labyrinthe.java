@@ -101,10 +101,12 @@ public class Labyrinthe {
 		    }
 
 		    plateau[hero.getPosition().getY()][hero.getPosition().getX()] = 2;
-		    plateau[monstre.getPosition().getY()][monstre.getPosition().getX()] = 9;
+			if (monstre.getLife() > 0){
+				plateau[monstre.getPosition().getY()][monstre.getPosition().getX()] = 9;
+				monstre.moveMonstre(this);
+			}
 
 		    hero.executeAction(Action.getActionFromAcronyme("S"));
-		    monstre.moveMonstre(this);
 		}
 
 	/*
@@ -119,15 +121,16 @@ public class Labyrinthe {
         } 
 	}
 
-    public int[][] getPlateau() {
-        return plateau;
-    }
+
+	public int[][] getPlateau() {
+		return plateau;
+	}
 
 	/*
-	Créée un labyrinthe à partir d'un fichier
+	Creee un labyrinthe Ã  partir d'un fichier
 	 */
-    public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus, Portal portala, Portal portalb) {
-		return new Labyrinthe(tresor, hero,monstre,malus, portala, portalb, Utilitaire.readPlateauFromFile());
+	public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus, Portal a, Portal b) {
+		return new Labyrinthe(tresor, hero,monstre,malus, a, b, Utilitaire.readPlateauFromFile());
 	}
 
 }
