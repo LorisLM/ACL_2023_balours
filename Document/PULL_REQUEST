@@ -1,0 +1,17 @@
+Pull Request 3.1
+
+Description
+
+Ajout des possibilités d'attaque et de heal
+Ajout de niveaux
+Ajout de maven
+Ajout de test
+
+Type de Changement
+ Correction de bug
+ Nouvelle fonctionnalité
+ Amélioration de fonctionnalité existante au niveau graphique
+
+Checklist
+ J'ai testé les modifications localement.
+ J'ai ajouté des tests unitaires couvrant mes changements.
