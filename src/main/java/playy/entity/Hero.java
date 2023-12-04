@@ -61,4 +61,8 @@ public class Hero extends Entity {
 	public void executeAction(Action actionFromAcronyme) {
 		actionFromAcronyme.execute();
 	}
+
+	public ArrayList<Equipement> getEquipements() {
+		return equipements;
+	}
 }
