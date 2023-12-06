@@ -5,6 +5,9 @@ import playy.action.Move;
 import playy.entity.Hero;
 import playy.equipement.Tresor;
 import playy.entity.Monstre;
+import playy.Labyrinthe;
+import playy.Manager;
+import playy.Position;
 
 import java.util.Scanner;
 
@@ -21,6 +24,8 @@ public class Manager {
 	private Portal portala;
 	private Portal portalb;
 	private Labyrinthe lab;
+	private Fantom fantom;
+	private int x;
 	public void start() {
 		manager = this;
 		pacman = new Hero();
@@ -29,7 +34,7 @@ public class Manager {
 		tresor = new Tresor();
 		portala = new Portal();
 		portalb = new Portal();
-		lab = Labyrinthe.FromFile(tresor, pacman,monstre,malus, portala, portalb);
+		lab = Labyrinthe.FromFile(tresor, pacman,monstre,malus, portala, portalb, fantom);
 		InterfaceJeu.AfficherJeu();
 
 		while (!tresor.flag) {
@@ -55,14 +60,11 @@ public class Manager {
 			}
 			
 			if (portala.getPosition().getY() == pacman.getPosition().getY() && portala.getPosition().getX() == pacman.getPosition().getX()) {
-				pacman.position.setX(portalb.getPosition().getX());
-				pacman.position.setY(portalb.getPosition().getY());
+				Move.TP2();
 			}
 			
 			if (portalb.getPosition().getY() == pacman.getPosition().getY() && portalb.getPosition().getX() == pacman.getPosition().getX()) {
-				pacman.TP(portala.getPosition().getX(), portala.getPosition().getY());
-				pacman.position.setX(portala.getPosition().getX());
-				pacman.position.setY(portala.getPosition().getY());
+				Move.TP1();
 			}
 		}
 	}
@@ -82,6 +84,11 @@ public class Manager {
 	public Monstre getMonstre() {
 		return monstre;
 	}
-
+	public Portal getPortala() {
+		return portala;
+	}
+	public Portal getPortalb() {
+		return portalb;
+	}
 
 }

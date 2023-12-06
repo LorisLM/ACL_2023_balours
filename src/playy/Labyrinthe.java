@@ -143,8 +143,8 @@ public class Labyrinthe {
 	/*
 	Creee un labyrinthe Ã  partir d'un fichier
 	 */
-	public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus, Portal a, Portal b) {
-		return new Labyrinthe(tresor, hero,monstre,malus, a, b, Utilitaire.readPlateauFromFile());
+	public static Labyrinthe FromFile(Tresor tresor, Hero hero, Monstre monstre, Malus malus, Portal a, Portal b, Fantom fantom) {
+		return new Labyrinthe(tresor, hero,monstre,malus, a, b, fantom, Utilitaire.readPlateauFromFile());
 	}
 
 }

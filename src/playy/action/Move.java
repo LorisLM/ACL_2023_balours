@@ -1,7 +1,5 @@
 package playy.action;
 
-
-import main.java.playy.entity.x;
 import playy.Labyrinthe;
 import playy.Manager;
 import playy.Position;
@@ -26,6 +24,17 @@ public enum Move implements Action {
 		position.setX(position.getX()+this.getX());
 		position.setY(position.getY()+this.getY());
 	}
+	
+	public static void TP1() {
+		Position position = Manager.getManager().getPacman().getPosition();
+		position.setX(Manager.getManager().getPortalb().getPosition().getX());
+		position.setY(Manager.getManager().getPortalb().getPosition().getY());
+}
+	public static void TP2() {
+		Position position = Manager.getManager().getPacman().getPosition();
+		position.setX(Manager.getManager().getPortala().getPosition().getX());
+		position.setY(Manager.getManager().getPortala().getPosition().getY());
+}
 	
 	
 
