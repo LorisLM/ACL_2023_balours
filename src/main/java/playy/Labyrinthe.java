@@ -18,14 +18,16 @@ public class Labyrinthe {
 	public Tresor tresor;
 	public Portal portala;
 	public Portal portalb;
+	public Fantom fantom;
 	
-	public Labyrinthe(Tresor tresor, Hero hero,Monstre monstre, Malus malus, Portal portala, Portal portalb)  {
+	public Labyrinthe(Tresor tresor, Hero hero,Monstre monstre, Malus malus, Portal portala, Portal portalb,Fantom fantom)  {
 		this.hero = hero;
 	    this.monstre = monstre;
 	    this.malus = malus;
 	    this.tresor = tresor;
 	    this.portala = portala;
 	    this.portala = portalb;
+	    this.fantom=fantom;
 
 	    for (int i = 0; i < plateau.length; i++) {
 	        for (int j = 0; j < plateau.length; j++) {
@@ -50,12 +52,16 @@ public class Labyrinthe {
 	            if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX() && plateau[i][j] != 0) {
 	            	plateau[i][j] = 8;
 	            }
+	            if (i == fantom.getPosition().getY() && j == fantom.getPosition().getX() && plateau[i][j] != 0) {
+	            	plateau[i][j] = 8;
+	            }
+	            
 	        }
 	    }
 
 	}
 
-    private Labyrinthe(Tresor tresor,Hero hero,Monstre monstre,Malus malus,Portal portala, Portal portalb, int[][] plateau){
+    private Labyrinthe(Tresor tresor,Hero hero,Monstre monstre,Malus malus,Portal portala, Portal portalb,Fantom fantom, int[][] plateau){
         this.hero = hero;
         this.monstre=monstre;
         this.plateau = plateau;
@@ -63,6 +69,7 @@ public class Labyrinthe {
 	    this.plateau = plateau;
 	    this.portala = portala;
 	    this.portalb = portalb;
+	    this.fantom=fantom;
 	    
         for (int i = 0; i < plateau.length; i++) {
             for (int j = 0; j < plateau.length; j++) {
@@ -84,6 +91,9 @@ public class Labyrinthe {
                 if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX()) {
 	            	plateau[i][j] = 8;
 	            }
+                if (i == fantom.getPosition().getY() && j == fantom.getPosition().getX() ) {
+	            	plateau[i][j] = 3;
+	            }
             }
         }
     }
@@ -94,7 +104,7 @@ public class Labyrinthe {
 	public void updateLab() {
 		    for (int i = 0; i < plateau.length; i++) {
 		        for (int j = 0; j < plateau.length; j++) {
-		            if (plateau[i][j] == 2 || plateau[i][j] == 9) {
+		            if (plateau[i][j] == 2 || plateau[i][j] == 9 || plateau[i][j]==3) {
 		                plateau[i][j] = 0;
 		            }
 		        }
@@ -103,6 +113,10 @@ public class Labyrinthe {
 		    plateau[hero.getPosition().getY()][hero.getPosition().getX()] = 2;
 			if (monstre.getLife() > 0){
 				plateau[monstre.getPosition().getY()][monstre.getPosition().getX()] = 9;
+				monstre.moveMonstre(this);
+			}
+			if (fantom.getLife() > 0){
+				plateau[fantom.getPosition().getY()][fantom.getPosition().getX()] = 3;
 				monstre.moveMonstre(this);
 			}
 
