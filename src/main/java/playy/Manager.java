@@ -53,6 +53,17 @@ public class Manager {
                 System.out.println("Vous avez gagné !");
 				break;
 			}
+			
+			if (portala.getPosition().getY() == pacman.getPosition().getY() && portala.getPosition().getX() == pacman.getPosition().getX()) {
+				pacman.position.setX(portalb.getPosition().getX());
+				pacman.position.setY(portalb.getPosition().getY());
+			}
+			
+			if (portalb.getPosition().getY() == pacman.getPosition().getY() && portalb.getPosition().getX() == pacman.getPosition().getX()) {
+				pacman.TP(portala.getPosition().getX(), portala.getPosition().getY());
+				pacman.position.setX(portala.getPosition().getX());
+				pacman.position.setY(portala.getPosition().getY());
+			}
 		}
 	}
 

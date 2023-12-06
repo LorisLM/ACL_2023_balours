@@ -1,6 +1,7 @@
 package playy.action;
 
 
+import main.java.playy.entity.x;
 import playy.Labyrinthe;
 import playy.Manager;
 import playy.Position;
@@ -15,7 +16,6 @@ public enum Move implements Action {
 		this.y =y;
 	}
 
-
 	@Override
 	public void execute() {
 		Position position = Manager.getManager().getPacman().getPosition();
@@ -26,7 +26,8 @@ public enum Move implements Action {
 		position.setX(position.getX()+this.getX());
 		position.setY(position.getY()+this.getY());
 	}
-
+	
+	
 
 	public int getX() {
 		return x;
