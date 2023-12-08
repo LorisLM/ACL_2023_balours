@@ -1,6 +1,7 @@
 package playy.action;
 
 import playy.Labyrinthe;
+import static playy.Labyrinthe.TAILLE;
 import playy.Manager;
 import playy.Position;
 
@@ -19,7 +20,7 @@ public enum Move implements Action {
 		Position position = Manager.getManager().getPacman().getPosition();
 		int[][] plateau = Manager.getManager().getLab().getPlateau();
 
-		if (plateau[position.getY()+this.getY()][position.getX()+this.getX()] == -1 ||plateau[position.getY()+this.getY()][position.getX()+this.getX()] == 9)
+		if (position.getY()+this.getY() > TAILLE || position.getX()+this.getX() > TAILLE || position.getY()+this.getY() < 0 || position.getX()+this.getX() < 0 || plateau[position.getY()+this.getY()][position.getX()+this.getX()] == -1 ||plateau[position.getY()+this.getY()][position.getX()+this.getX()] == 9)
 			return;
 		position.setX(position.getX()+this.getX());
 		position.setY(position.getY()+this.getY());

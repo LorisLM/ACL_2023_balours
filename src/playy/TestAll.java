@@ -2,6 +2,7 @@ package playy;
 
 import org.junit.Test;
 import playy.entity.Entity;
+import playy.entity.Fantom;
 import playy.entity.Hero;
 import playy.entity.Monstre;
 import playy.entity.Portal;
@@ -20,8 +21,9 @@ public class TestAll {
         Tresor tresor = new Tresor();
         Portal portala = new Portal();
         Portal portalb = new Portal();
-
-        Labyrinthe labyrinthe = new Labyrinthe(tresor, hero, monstre, malus, portala, portalb);
+		Fantom fantom=new Fantom(Position.InitPosition());
+		
+        Labyrinthe labyrinthe = new Labyrinthe(tresor, hero, monstre, malus, portala, portalb, fantom);
 
         assertEquals(2, labyrinthe.getPlateau()[hero.getPosition().getY()][hero.getPosition().getX()]);
         assertEquals(3, labyrinthe.getPlateau()[monstre.getPosition().getY()][monstre.getPosition().getX()]);
@@ -35,7 +37,8 @@ public class TestAll {
         Tresor tresor = new Tresor();
         Portal portala = new Portal();
         Portal portalb = new Portal();
-        Labyrinthe labyrinthe = Labyrinthe.FromFile(tresor, hero, monstre, malus, portala, portalb);
+		Fantom fantom=new Fantom(Position.InitPosition());
+        Labyrinthe labyrinthe = Labyrinthe.FromFile(tresor, hero, monstre, malus, portala, portalb, fantom);
 
         assertNotNull(labyrinthe);
     }

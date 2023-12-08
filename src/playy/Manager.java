@@ -30,6 +30,7 @@ public class Manager {
 		manager = this;
 		pacman = new Hero();
 		monstre=new Monstre(Position.InitPosition());
+		fantom=new Fantom(Position.InitPosition());
 		malus = new Malus();
 		tresor = new Tresor();
 		portala = new Portal();
