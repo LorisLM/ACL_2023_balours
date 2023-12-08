@@ -1,17 +1,21 @@
 package playy;
 
 import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
 public class Interface extends JFrame {
 
-    private int[][] PlateauJeu;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int[][] PlateauJeu;
     private ImageIcon MurIcon; // Stockage des icônes pour être plus optimisé
     private ImageIcon TerreIcon;
     private ImageIcon HerosIcon;
@@ -22,7 +26,6 @@ public class Interface extends JFrame {
     private ImageIcon SoinIcon;
     private ImageIcon TresorIcon;
     private ImageIcon MalusIcon;
-    private JPanel cards;
     private boolean isStarted=false;
 
     public Interface(int[][] PlateauJeu) {

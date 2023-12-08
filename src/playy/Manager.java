@@ -5,9 +5,7 @@ import playy.action.Move;
 import playy.entity.Hero;
 import playy.equipement.Tresor;
 import playy.entity.Monstre;
-import playy.Labyrinthe;
 import playy.Manager;
-import playy.Position;
 
 import java.util.Scanner;
 
@@ -25,7 +23,6 @@ public class Manager {
 	private Portal portalb;
 	private Labyrinthe lab;
 	private Fantom fantom;
-	private int x;
 	public void start() {
 		manager = this;
 		pacman = new Hero();

@@ -1,0 +1,23 @@
+Loris : 
+-Mouvement avec flèches directionnelles
+-Pic apparait après avoir marché dessus
+
+Baptiste : 
+-Portail ne disparait pas
+-Pic enlève des points de vie
+-Déplacement fantôme
+-Replace le bloc derrière lui en passant
+
+Bilal :
+-Déplacement intelligent monstre
+-Résoudre bug niveaux
+-Affichage barre de points de vie
+-Condition de défaite si points de vie = 0
+-Mise en place du mode multijoueur en réseau TCP IP
+
+Mohamed :
+-Diagramme de classe
+-Diagramme de séquence
+-Ordre de priorité éléments d'affichages
+
+
