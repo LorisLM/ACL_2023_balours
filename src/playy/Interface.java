@@ -105,7 +105,7 @@ public class Interface extends JFrame {
     public void afficherLabyrinthe() {
     	JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.insets = new Insets(1, 1, 1, 1);
+        constraints.insets = new Insets(0, 0, 0, 0);
         int TailleCarre = 20;
 
         for (int i = 0; i < PlateauJeu.length; i++) {

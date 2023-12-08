@@ -61,13 +61,19 @@ public class Manager {
 			}
 			
 			if (portala.getPosition().getY() == pacman.getPosition().getY() && portala.getPosition().getX() == pacman.getPosition().getX()) {
-				Move.TP2();
+				Move.TP1();
 			}
 			
 			if (portalb.getPosition().getY() == pacman.getPosition().getY() && portalb.getPosition().getX() == pacman.getPosition().getX()) {
-				Move.TP1();
+				Move.TP2();
+			}
+			
+			if (-1 <= monstre.getPosition().getX() - pacman.getPosition().getX() && 1 >= monstre.getPosition().getX() - pacman.getPosition().getX() && -1 <= monstre.getPosition().getY() - pacman.getPosition().getY() && 1 >= monstre.getPosition().getY() - pacman.getPosition().getY()) {
+				System.out.println("Vous avez perdu !");
+				break;
 			}
 		}
+		InterfaceJeu.afficherLabyrinthe();
 	}
 
 	public static Manager getManager() {
