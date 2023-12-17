@@ -19,11 +19,10 @@ public class Fantom extends Entity {
     }
 
     public void moveFantom(Labyrinthe labyrinthe) {
-        Random rand = new Random();
+    	Random rand = new Random();
         int moveX = rand.nextInt(3) - 1;
         int moveY = rand.nextInt(3) - 1;
-
-
+        
         int newX = position.getX() + moveX;
         int newY = position.getY() + moveY;
 

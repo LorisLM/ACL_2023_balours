@@ -107,6 +107,15 @@ public class Labyrinthe {
 		            if (plateau[i][j] == 2 || plateau[i][j] == 9 || plateau[i][j]==3) {
 		                plateau[i][j] = 0;
 		            }
+		            if (i == portala.getPosition().getY() && j == portala.getPosition().getX() && plateau[i][j] != 2) {
+		            	plateau[i][j] = 8;
+		            }
+	                if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX() && plateau[i][j] != 2) {
+		            	plateau[i][j] = 8;
+		            }
+	                if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX() && plateau[i][j] != 2) {
+		            	plateau[i][j] = 8;
+		            }
 		        }
 		    }
 
@@ -139,7 +148,7 @@ public class Labyrinthe {
 	public int[][] getPlateau() {
 		return plateau;
 	}
-
+	
 	/*
 	Creee un labyrinthe Ã  partir d'un fichier
 	 */
