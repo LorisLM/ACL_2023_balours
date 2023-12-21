@@ -26,12 +26,31 @@ public class Utilitaire {
 	}
 
 	public static int[][] readPlateauFromFile() {
+		Scanner scanner = new Scanner(System.in);
+		String fichier =" ";
+		System.out.println("Quel est votre niveau 1, 2 ou 3 :");
+		int nv = scanner.nextInt();
+		
+		if (nv == 1) {
+			fichier = "plateaufacile.txt";
+			Labyrinthe.TAILLE = 20;
+		}
+		
+		else if (nv == 2) {
+			fichier = "plateaumoyen.txt";
+			Labyrinthe.TAILLE = 31;
+		}
+		
+		if (nv == 3) {
+			fichier = "plateaudifficile.txt";
+			Labyrinthe.TAILLE = 34;
+		}
+		
 		int[][] plateau = new int[TAILLE][TAILLE];
-
-		try (Scanner scanner = new Scanner(new File("plateaudifficile.txt"))) {
+		try (Scanner scanner1 = new Scanner(new File(fichier))) {
 			for (int i = 0; i < TAILLE; i++) {
-				if (scanner.hasNextLine()) {
-					String line = scanner.nextLine();
+				if (scanner1.hasNextLine()) {
+					String line = scanner1.nextLine();
 					String[] values = line.split("\t");
 
 					for (int j = 0; j < TAILLE && j < values.length; j++) {
