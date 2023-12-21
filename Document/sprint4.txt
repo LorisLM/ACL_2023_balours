@@ -13,7 +13,7 @@ Bilal :
 -Résoudre bug niveaux
 -Affichage barre de points de vie
 -Condition de défaite si points de vie = 0
--Mise en place du mode multijoueur en réseau TCP IP
+
 
 Mohamed :
 -Diagramme de classe
