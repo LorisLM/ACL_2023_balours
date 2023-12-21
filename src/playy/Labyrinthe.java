@@ -12,6 +12,7 @@ public class Labyrinthe {
 	public static int TAILLE = 34;
 
 	private int plateau [][] = new int[TAILLE][TAILLE];
+	private int plateau_b [][] = new int[TAILLE][TAILLE];
 	private Hero hero;
 	public Monstre monstre;
 	public Malus malus;
@@ -46,18 +47,19 @@ public class Labyrinthe {
 	            if (i == tresor.getPosition().getY() && j == tresor.getPosition().getX()) {
 	            	plateau[i][j] = 7;
 	            }
-	            if (i == portala.getPosition().getY() && j == portala.getPosition().getX() && plateau[i][j] != 0) {
+	            if (i == portala.getPosition().getY() && j == portala.getPosition().getX()) {
 	            	plateau[i][j] = 8;
 	            }
-	            if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX() && plateau[i][j] != 0) {
+	            if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX()) {
 	            	plateau[i][j] = 8;
 	            }
-	            if (i == fantom.getPosition().getY() && j == fantom.getPosition().getX() && plateau[i][j] != 0) {
-	            	plateau[i][j] = 8;
+	            if (i == fantom.getPosition().getY() && j == fantom.getPosition().getX()) {
+	            	plateau[i][j] = 3;
 	            }
 	            
 	        }
 	    }
+	    plateau_b = plateau;
 
 	}
 
@@ -70,6 +72,7 @@ public class Labyrinthe {
 	    this.portala = portala;
 	    this.portalb = portalb;
 	    this.fantom=fantom;
+	    this.malus = malus;
 	    
         for (int i = 0; i < plateau.length; i++) {
             for (int j = 0; j < plateau.length; j++) {
@@ -101,7 +104,8 @@ public class Labyrinthe {
 	/*
 	Actualise la position de toutes les entités présentes sur le labyrinthe
 	 */
-	public void updateLab() {
+	public void updateLab() {;
+		
 		    for (int i = 0; i < plateau.length; i++) {
 		        for (int j = 0; j < plateau.length; j++) {
 		            if (plateau[i][j] == 2 || plateau[i][j] == 9 || plateau[i][j]==3) {
@@ -116,6 +120,9 @@ public class Labyrinthe {
 	                if (i == portalb.getPosition().getY() && j == portalb.getPosition().getX() && plateau[i][j] != 2) {
 		            	plateau[i][j] = 8;
 		            }
+	                if (plateau_b[i][j]==-1 && plateau[i][j]==0) {
+	                	plateau[i][j] = -1;
+	                }
 		        }
 		    }
 

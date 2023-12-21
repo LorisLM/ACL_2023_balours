@@ -21,6 +21,7 @@ public class Fantom extends Entity {
     public void moveFantom(Labyrinthe labyrinthe, Entity target) {
         int moveX = 0;
         int moveY = 0;
+        int murs = 0;
     	if (target.position.getX() - position.getX() > 0) {
     		moveX = 1;
     	}

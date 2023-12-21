@@ -68,7 +68,9 @@ public class Manager {
 			if (portalb.getPosition().getY() == pacman.getPosition().getY() && portalb.getPosition().getX() == pacman.getPosition().getX()) {
 				Move.TP2();
 			}
-			
+			if (malus.getPosition().getY() == pacman.getPosition().getY() && malus.getPosition().getX() == pacman.getPosition().getX()) {
+				pacman.setLife(pacman.getLife()-1);
+			}
 			if (-1 <= monstre.getPosition().getX() - pacman.getPosition().getX() && 1 >= monstre.getPosition().getX() - pacman.getPosition().getX() && -1 <= monstre.getPosition().getY() - pacman.getPosition().getY() && 1 >= monstre.getPosition().getY() - pacman.getPosition().getY()) {
 				boolean flagperte = true;
 				InterfaceJeu.FinJeu(InterfaceJeu, null, null);
@@ -100,5 +102,7 @@ public class Manager {
 	public Portal getPortalb() {
 		return portalb;
 	}
-
+	public Malus getMalus() {
+		return malus;
+	}
 }
