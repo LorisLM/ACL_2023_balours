@@ -18,15 +18,24 @@ public class Fantom extends Entity {
         super(2, position);
     }
 
-    public void moveFantom(Labyrinthe labyrinthe) {
-    	Random rand = new Random();
-        int moveX = rand.nextInt(3) - 1;
-        int moveY = rand.nextInt(3) - 1;
-        
+    public void moveFantom(Labyrinthe labyrinthe, Entity target) {
+        int moveX = 0;
+        int moveY = 0;
+    	if (target.position.getX() - position.getX() > 0) {
+    		moveX = 1;
+    	}
+    	else if (target.position.getX() - position.getX() < 0) {
+    		moveX = -1;
+    	}
+    	if (target.position.getY() - position.getY() > 0) {
+    		moveY = 1;
+    	}
+    	else if (target.position.getY() - position.getY() < 0) {
+    		moveY = -1;
+    	}
+    	
         int newX = position.getX() + moveX;
         int newY = position.getY() + moveY;
-
-        
 
         if (newX >= 0 && newX < Labyrinthe.TAILLE &&
                 newY >= 0 && newY < Labyrinthe.TAILLE ) {
