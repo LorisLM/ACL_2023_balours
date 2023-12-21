@@ -232,4 +232,13 @@ public class Interface extends JFrame {
     public boolean isStarted() {
         return isStarted;
     }
+    
+    void FinJeu(JFrame parentFrame, String message, String imagePath) {
+    	JPanel panel = new JPanel();
+		JOptionPane.showMessageDialog(parentFrame, panel, "Fin du labyrinthe, vous avez perdu", JOptionPane.INFORMATION_MESSAGE);
+    }
+    void FinJeuGagner(JFrame parentFrame, String message, String imagePath) {
+    	JPanel panel = new JPanel();
+		JOptionPane.showMessageDialog(parentFrame, panel, "Fin du labyrinthe, vous avez gagné", JOptionPane.INFORMATION_MESSAGE);
+    }
 }

@@ -10,6 +10,7 @@ import playy.Manager;
 import java.util.Scanner;
 
 public class Manager {
+	Scanner scanner = new Scanner(System.in);
 	private Interface InterfaceJeu;
 	private static Manager manager;
 	public Manager() {
@@ -23,7 +24,9 @@ public class Manager {
 	private Portal portalb;
 	private Labyrinthe lab;
 	private Fantom fantom;
+	boolean flagperte = false;
 	public void start() {
+		
 		manager = this;
 		pacman = new Hero();
 		monstre=new Monstre(Position.InitPosition());
@@ -53,6 +56,7 @@ public class Manager {
 			lab.updateLab();
 			if (tresor.getPosition().getY() == pacman.getPosition().getY() && tresor.getPosition().getX() == pacman.getPosition().getX()) {
                 tresor.gagner();
+                InterfaceJeu.FinJeuGagner(InterfaceJeu, null, null);
                 System.out.println("Vous avez gagné !");
 				break;
 			}
@@ -66,6 +70,8 @@ public class Manager {
 			}
 			
 			if (-1 <= monstre.getPosition().getX() - pacman.getPosition().getX() && 1 >= monstre.getPosition().getX() - pacman.getPosition().getX() && -1 <= monstre.getPosition().getY() - pacman.getPosition().getY() && 1 >= monstre.getPosition().getY() - pacman.getPosition().getY()) {
+				boolean flagperte = true;
+				InterfaceJeu.FinJeu(InterfaceJeu, null, null);
 				System.out.println("Vous avez perdu !");
 				break;
 			}

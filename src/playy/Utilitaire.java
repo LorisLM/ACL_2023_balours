@@ -33,12 +33,12 @@ public class Utilitaire {
 		
 		if (nv == 1) {
 			fichier = "plateaufacile.txt";
-			Labyrinthe.TAILLE = 20;
+			Labyrinthe.TAILLE = 18;
 		}
 		
 		else if (nv == 2) {
 			fichier = "plateaumoyen.txt";
-			Labyrinthe.TAILLE = 31;
+			Labyrinthe.TAILLE = 30;
 		}
 		
 		if (nv == 3) {
