@@ -126,7 +126,7 @@ public class Labyrinthe {
 			}
 			if (fantom.getLife() > 0){
 				plateau[fantom.getPosition().getY()][fantom.getPosition().getX()] = 3;
-				fantom.moveFantom(this);
+				fantom.moveFantom(this, hero);
 			}
 
 		    hero.executeAction(Action.getActionFromAcronyme("S"));
